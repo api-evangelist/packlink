@@ -1,0 +1,114 @@
+openapi: 3.0.3
+info:
+  title: Packlink PRO Shipping Clients Shipments API
+  version: v1
+  description: The Packlink PRO Shipping API lets e-commerce merchants and integrations compare carrier services, create shipments, print labels, track parcels, manage warehouses, and handle customs paperwork across Packlink's multi-carrier shipping network. This description is DERIVED from the endpoint surface used by Packlink's own open-source e-commerce integration modules (ecommerce_module_core Proxy). Request and response schemas are intentionally left minimal to avoid fabricating fields not confirmed from a published specification.
+  contact:
+    name: Packlink PRO Support
+    url: https://support.packlink.com/hc/en-gb
+  x-logo:
+    url: http://www.packlink.com
+servers:
+- url: https://api.packlink.com
+  description: Production API
+security:
+- ApiKeyAuth: []
+tags:
+- name: Shipments
+  description: Create shipments, print labels, and track parcels.
+paths:
+  /v1/shipments:
+    post:
+      operationId: createShipment
+      tags:
+      - Shipments
+      summary: Create a shipment draft
+      description: Creates a shipment draft for a chosen service.
+      responses:
+        '200':
+          description: Created shipment reference
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /v1/shipments/{reference}:
+    get:
+      operationId: getShipment
+      tags:
+      - Shipments
+      summary: Get shipment
+      parameters:
+      - name: reference
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Shipment data
+        '401':
+          description: Unauthorized
+        '404':
+          description: Shipment not found
+  /v1/shipments/{reference}/labels:
+    get:
+      operationId: getShipmentLabels
+      tags:
+      - Shipments
+      summary: Get shipment labels
+      parameters:
+      - name: reference
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Label URLs for the shipment
+        '401':
+          description: Unauthorized
+        '404':
+          description: Shipment not found
+  /v1/shipments/{reference}/track:
+    get:
+      operationId: trackShipment
+      tags:
+      - Shipments
+      summary: Track shipment
+      parameters:
+      - name: reference
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Tracking events for the shipment
+        '401':
+          description: Unauthorized
+        '404':
+          description: Shipment not found
+  /v1/shipments/callback:
+    post:
+      operationId: registerShipmentCallback
+      tags:
+      - Shipments
+      summary: Register a shipment status webhook callback
+      description: Registers a callback URL that Packlink calls when a shipment's status changes.
+      responses:
+        '200':
+          description: Callback registered
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Packlink PRO API key passed in the Authorization header. Obtain the key from the Packlink PRO dashboard under Settings > Packlink PRO API.
+x-generated: '2026-07-20'
+x-method: derived
+x-source: https://github.com/packlink-dev/ecommerce_module_core/blob/master/src/BusinessLogic/Http/Proxy.php

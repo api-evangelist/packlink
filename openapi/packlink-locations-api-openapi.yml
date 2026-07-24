@@ -1,0 +1,100 @@
+openapi: 3.0.3
+info:
+  title: Packlink PRO Shipping Clients Locations API
+  version: v1
+  description: The Packlink PRO Shipping API lets e-commerce merchants and integrations compare carrier services, create shipments, print labels, track parcels, manage warehouses, and handle customs paperwork across Packlink's multi-carrier shipping network. This description is DERIVED from the endpoint surface used by Packlink's own open-source e-commerce integration modules (ecommerce_module_core Proxy). Request and response schemas are intentionally left minimal to avoid fabricating fields not confirmed from a published specification.
+  contact:
+    name: Packlink PRO Support
+    url: https://support.packlink.com/hc/en-gb
+  x-logo:
+    url: http://www.packlink.com
+servers:
+- url: https://api.packlink.com
+  description: Production API
+security:
+- ApiKeyAuth: []
+tags:
+- name: Locations
+  description: Postal code, postal zone, and drop-off lookups.
+paths:
+  /v1/dropoffs/{serviceId}/{countryCode}/{postalCode}:
+    get:
+      operationId: listDropoffs
+      tags:
+      - Locations
+      summary: List drop-off points
+      parameters:
+      - name: serviceId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: countryCode
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: postalCode
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Drop-off locations
+        '401':
+          description: Unauthorized
+  /v1/locations/postalcodes:
+    get:
+      operationId: searchPostalCodes
+      tags:
+      - Locations
+      summary: Search postal codes
+      responses:
+        '200':
+          description: Matching postal codes
+        '401':
+          description: Unauthorized
+  /v1/locations/postalcodes/{countryCode}/{zipCode}:
+    get:
+      operationId: getPostalCodes
+      tags:
+      - Locations
+      summary: Get postal codes by country and zip
+      parameters:
+      - name: countryCode
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: zipCode
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Postal codes
+        '401':
+          description: Unauthorized
+  /v1/locations/postalzones/destinations:
+    get:
+      operationId: listPostalZoneDestinations
+      tags:
+      - Locations
+      summary: List postal-zone destinations
+      responses:
+        '200':
+          description: Postal zone destinations
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Packlink PRO API key passed in the Authorization header. Obtain the key from the Packlink PRO dashboard under Settings > Packlink PRO API.
+x-generated: '2026-07-20'
+x-method: derived
+x-source: https://github.com/packlink-dev/ecommerce_module_core/blob/master/src/BusinessLogic/Http/Proxy.php

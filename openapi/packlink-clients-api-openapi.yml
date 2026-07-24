@@ -1,0 +1,105 @@
+openapi: 3.0.3
+info:
+  title: Packlink PRO Shipping Clients API
+  version: v1
+  description: The Packlink PRO Shipping API lets e-commerce merchants and integrations compare carrier services, create shipments, print labels, track parcels, manage warehouses, and handle customs paperwork across Packlink's multi-carrier shipping network. This description is DERIVED from the endpoint surface used by Packlink's own open-source e-commerce integration modules (ecommerce_module_core Proxy). Request and response schemas are intentionally left minimal to avoid fabricating fields not confirmed from a published specification.
+  contact:
+    name: Packlink PRO Support
+    url: https://support.packlink.com/hc/en-gb
+  x-logo:
+    url: http://www.packlink.com
+servers:
+- url: https://api.packlink.com
+  description: Production API
+security:
+- ApiKeyAuth: []
+tags:
+- name: Clients
+  description: Client account, warehouses, and API keys.
+paths:
+  /v1/clients:
+    get:
+      operationId: getClient
+      tags:
+      - Clients
+      summary: Get client account data
+      responses:
+        '200':
+          description: Client data
+        '401':
+          description: Unauthorized
+  /v1/clients/warehouses:
+    get:
+      operationId: listWarehouses
+      tags:
+      - Clients
+      summary: List warehouses
+      responses:
+        '200':
+          description: User warehouses
+        '401':
+          description: Unauthorized
+  /v1/users/parcels:
+    get:
+      operationId: listUserParcels
+      tags:
+      - Clients
+      summary: List user parcels
+      responses:
+        '200':
+          description: User default parcels
+        '401':
+          description: Unauthorized
+  /v1/users/api/keys:
+    get:
+      operationId: getApiKeys
+      tags:
+      - Clients
+      summary: List API keys
+      responses:
+        '200':
+          description: API keys
+        '401':
+          description: Unauthorized
+    post:
+      operationId: generateApiKey
+      tags:
+      - Clients
+      summary: Generate an API key
+      responses:
+        '200':
+          description: API key
+        '401':
+          description: Unauthorized
+  /v1/register:
+    post:
+      operationId: registerUser
+      tags:
+      - Clients
+      summary: Register a user
+      responses:
+        '200':
+          description: Registered user
+        '400':
+          description: Bad request
+  /pro/subscriptions/client/active:
+    get:
+      operationId: getActiveSubscription
+      tags:
+      - Clients
+      summary: Get active PRO subscription
+      responses:
+        '200':
+          description: Active subscription
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Packlink PRO API key passed in the Authorization header. Obtain the key from the Packlink PRO dashboard under Settings > Packlink PRO API.
+x-generated: '2026-07-20'
+x-method: derived
+x-source: https://github.com/packlink-dev/ecommerce_module_core/blob/master/src/BusinessLogic/Http/Proxy.php

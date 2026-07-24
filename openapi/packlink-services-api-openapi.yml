@@ -1,0 +1,75 @@
+openapi: 3.0.3
+info:
+  title: Packlink PRO Shipping Clients Services API
+  version: v1
+  description: The Packlink PRO Shipping API lets e-commerce merchants and integrations compare carrier services, create shipments, print labels, track parcels, manage warehouses, and handle customs paperwork across Packlink's multi-carrier shipping network. This description is DERIVED from the endpoint surface used by Packlink's own open-source e-commerce integration modules (ecommerce_module_core Proxy). Request and response schemas are intentionally left minimal to avoid fabricating fields not confirmed from a published specification.
+  contact:
+    name: Packlink PRO Support
+    url: https://support.packlink.com/hc/en-gb
+  x-logo:
+    url: http://www.packlink.com
+servers:
+- url: https://api.packlink.com
+  description: Production API
+security:
+- ApiKeyAuth: []
+tags:
+- name: Services
+  description: Compare and query available shipping services.
+paths:
+  /v1/services:
+    get:
+      operationId: listServices
+      tags:
+      - Services
+      summary: List available shipping services
+      description: Returns shipping services available for the given origin/destination and parcel parameters.
+      responses:
+        '200':
+          description: List of shipping services
+        '400':
+          description: Bad request — missing or invalid query parameters
+        '401':
+          description: Unauthorized — missing or invalid API key
+    post:
+      operationId: searchServices
+      tags:
+      - Services
+      summary: Search shipping services
+      description: Searches shipping services for a described shipment (dimensions, weight, origin, destination).
+      responses:
+        '200':
+          description: Matching shipping services
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /v1/services/available/{id}/details:
+    get:
+      operationId: getServiceDetails
+      tags:
+      - Services
+      summary: Get service details
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Service detail
+        '401':
+          description: Unauthorized
+        '404':
+          description: Service not found
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Packlink PRO API key passed in the Authorization header. Obtain the key from the Packlink PRO dashboard under Settings > Packlink PRO API.
+x-generated: '2026-07-20'
+x-method: derived
+x-source: https://github.com/packlink-dev/ecommerce_module_core/blob/master/src/BusinessLogic/Http/Proxy.php
