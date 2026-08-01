@@ -1,0 +1,271 @@
+openapi: 3.0.3
+x-generated: '2026-07-20'
+x-method: derived
+x-source: https://github.com/packlink-dev/ecommerce_module_core/blob/master/src/BusinessLogic/Http/Proxy.php
+info:
+  title: Packlink PRO Shipping API
+  version: v1
+  description: >-
+    The Packlink PRO Shipping API lets e-commerce merchants and integrations compare
+    carrier services, create shipments, print labels, track parcels, manage warehouses,
+    and handle customs paperwork across Packlink's multi-carrier shipping network.
+    This description is DERIVED from the endpoint surface used by Packlink's own
+    open-source e-commerce integration modules (ecommerce_module_core Proxy). Request
+    and response schemas are intentionally left minimal to avoid fabricating fields
+    not confirmed from a published specification.
+  contact:
+    name: Packlink PRO Support
+    url: https://support.packlink.com/hc/en-gb
+  x-logo:
+    url: http://www.packlink.com
+servers:
+  - url: https://api.packlink.com
+    description: Production API
+security:
+  - ApiKeyAuth: []
+tags:
+  - name: Services
+    description: Compare and query available shipping services.
+  - name: Shipments
+    description: Create shipments, print labels, and track parcels.
+  - name: Locations
+    description: Postal code, postal zone, and drop-off lookups.
+  - name: Clients
+    description: Client account, warehouses, and API keys.
+  - name: Customs
+    description: Customs invoices and customs-union lookups.
+  - name: Integrations
+    description: Register and manage platform integrations.
+paths:
+  /v1/services:
+    get:
+      operationId: listServices
+      tags: [Services]
+      summary: List available shipping services
+      description: Returns shipping services available for the given origin/destination and parcel parameters.
+      responses:
+        '200': { description: List of shipping services }
+        '400': { description: Bad request — missing or invalid query parameters }
+        '401': { description: Unauthorized — missing or invalid API key }
+    post:
+      operationId: searchServices
+      tags: [Services]
+      summary: Search shipping services
+      description: Searches shipping services for a described shipment (dimensions, weight, origin, destination).
+      responses:
+        '200': { description: Matching shipping services }
+        '400': { description: Bad request }
+        '401': { description: Unauthorized }
+  /v1/services/available/{id}/details:
+    get:
+      operationId: getServiceDetails
+      tags: [Services]
+      summary: Get service details
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: string } }
+      responses:
+        '200': { description: Service detail }
+        '401': { description: Unauthorized }
+        '404': { description: Service not found }
+  /v1/shipments:
+    post:
+      operationId: createShipment
+      tags: [Shipments]
+      summary: Create a shipment draft
+      description: Creates a shipment draft for a chosen service.
+      responses:
+        '200': { description: Created shipment reference }
+        '400': { description: Bad request }
+        '401': { description: Unauthorized }
+  /v1/shipments/{reference}:
+    get:
+      operationId: getShipment
+      tags: [Shipments]
+      summary: Get shipment
+      parameters:
+        - { name: reference, in: path, required: true, schema: { type: string } }
+      responses:
+        '200': { description: Shipment data }
+        '401': { description: Unauthorized }
+        '404': { description: Shipment not found }
+  /v1/shipments/{reference}/labels:
+    get:
+      operationId: getShipmentLabels
+      tags: [Shipments]
+      summary: Get shipment labels
+      parameters:
+        - { name: reference, in: path, required: true, schema: { type: string } }
+      responses:
+        '200': { description: Label URLs for the shipment }
+        '401': { description: Unauthorized }
+        '404': { description: Shipment not found }
+  /v1/shipments/{reference}/track:
+    get:
+      operationId: trackShipment
+      tags: [Shipments]
+      summary: Track shipment
+      parameters:
+        - { name: reference, in: path, required: true, schema: { type: string } }
+      responses:
+        '200': { description: Tracking events for the shipment }
+        '401': { description: Unauthorized }
+        '404': { description: Shipment not found }
+  /v1/shipments/callback:
+    post:
+      operationId: registerShipmentCallback
+      tags: [Shipments]
+      summary: Register a shipment status webhook callback
+      description: Registers a callback URL that Packlink calls when a shipment's status changes.
+      responses:
+        '200': { description: Callback registered }
+        '400': { description: Bad request }
+        '401': { description: Unauthorized }
+  /v1/dropoffs/{serviceId}/{countryCode}/{postalCode}:
+    get:
+      operationId: listDropoffs
+      tags: [Locations]
+      summary: List drop-off points
+      parameters:
+        - { name: serviceId, in: path, required: true, schema: { type: string } }
+        - { name: countryCode, in: path, required: true, schema: { type: string } }
+        - { name: postalCode, in: path, required: true, schema: { type: string } }
+      responses:
+        '200': { description: Drop-off locations }
+        '401': { description: Unauthorized }
+  /v1/locations/postalcodes:
+    get:
+      operationId: searchPostalCodes
+      tags: [Locations]
+      summary: Search postal codes
+      responses:
+        '200': { description: Matching postal codes }
+        '401': { description: Unauthorized }
+  /v1/locations/postalcodes/{countryCode}/{zipCode}:
+    get:
+      operationId: getPostalCodes
+      tags: [Locations]
+      summary: Get postal codes by country and zip
+      parameters:
+        - { name: countryCode, in: path, required: true, schema: { type: string } }
+        - { name: zipCode, in: path, required: true, schema: { type: string } }
+      responses:
+        '200': { description: Postal codes }
+        '401': { description: Unauthorized }
+  /v1/locations/postalzones/destinations:
+    get:
+      operationId: listPostalZoneDestinations
+      tags: [Locations]
+      summary: List postal-zone destinations
+      responses:
+        '200': { description: Postal zone destinations }
+        '401': { description: Unauthorized }
+  /v1/clients:
+    get:
+      operationId: getClient
+      tags: [Clients]
+      summary: Get client account data
+      responses:
+        '200': { description: Client data }
+        '401': { description: Unauthorized }
+  /v1/clients/warehouses:
+    get:
+      operationId: listWarehouses
+      tags: [Clients]
+      summary: List warehouses
+      responses:
+        '200': { description: User warehouses }
+        '401': { description: Unauthorized }
+  /v1/users/parcels:
+    get:
+      operationId: listUserParcels
+      tags: [Clients]
+      summary: List user parcels
+      responses:
+        '200': { description: User default parcels }
+        '401': { description: Unauthorized }
+  /v1/users/api/keys:
+    get:
+      operationId: getApiKeys
+      tags: [Clients]
+      summary: List API keys
+      responses:
+        '200': { description: API keys }
+        '401': { description: Unauthorized }
+    post:
+      operationId: generateApiKey
+      tags: [Clients]
+      summary: Generate an API key
+      responses:
+        '200': { description: API key }
+        '401': { description: Unauthorized }
+  /v1/register:
+    post:
+      operationId: registerUser
+      tags: [Clients]
+      summary: Register a user
+      responses:
+        '200': { description: Registered user }
+        '400': { description: Bad request }
+  /v1/customs-invoices:
+    post:
+      operationId: createCustomsInvoice
+      tags: [Customs]
+      summary: Create a customs invoice
+      responses:
+        '200': { description: Created customs invoice }
+        '401': { description: Unauthorized }
+  /v1/customs-invoices/{id}/download:
+    get:
+      operationId: downloadCustomsInvoice
+      tags: [Customs]
+      summary: Download a customs invoice
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: string } }
+      responses:
+        '200': { description: Customs invoice document }
+        '401': { description: Unauthorized }
+        '404': { description: Not found }
+  /v1/customs-unions/search-by-postal-code:
+    post:
+      operationId: searchCustomsUnions
+      tags: [Customs]
+      summary: Search customs unions by postal code
+      responses:
+        '200': { description: Customs union matches }
+        '401': { description: Unauthorized }
+  /v1/integrations:
+    post:
+      operationId: registerIntegration
+      tags: [Integrations]
+      summary: Register an integration
+      responses:
+        '200': { description: Integration registered }
+        '401': { description: Unauthorized }
+  /v1/integrations/{integrationId}:
+    delete:
+      operationId: disconnectIntegration
+      tags: [Integrations]
+      summary: Disconnect an integration
+      parameters:
+        - { name: integrationId, in: path, required: true, schema: { type: string } }
+      responses:
+        '200': { description: Integration disconnected }
+        '401': { description: Unauthorized }
+        '404': { description: Not found }
+  /pro/subscriptions/client/active:
+    get:
+      operationId: getActiveSubscription
+      tags: [Clients]
+      summary: Get active PRO subscription
+      responses:
+        '200': { description: Active subscription }
+        '401': { description: Unauthorized }
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: >-
+        Packlink PRO API key passed in the Authorization header. Obtain the key from
+        the Packlink PRO dashboard under Settings > Packlink PRO API.

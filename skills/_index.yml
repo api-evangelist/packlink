@@ -1,0 +1,11 @@
+generated: '2026-07-20'
+method: generated
+skills:
+  - file: packlink-quote-and-ship.md
+    name: Quote carrier services and create a shipment
+    api: openapi/packlink-openapi.yml
+    operations: [searchServices, getServiceDetails, createShipment, getShipmentLabels]
+  - file: packlink-track-shipment.md
+    name: Track a shipment and sync status
+    api: openapi/packlink-openapi.yml
+    operations: [getShipment, trackShipment, registerShipmentCallback]

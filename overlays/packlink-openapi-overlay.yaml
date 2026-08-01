@@ -1,0 +1,19 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Packlink PRO Shipping API
+  version: 1.0.0
+extends: openapi/packlink-openapi.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-enriched: '2026-07-20'
+      x-apievangelist-source: derived-from-official-modules
+      x-apievangelist-notes: >-
+        Endpoint surface derived from Packlink's open-source ecommerce_module_core
+        Proxy. Schemas minimal by design; not an authoritative provider spec.
+  - target: $.info
+    update:
+      x-authentication: authentication/packlink-authentication.yml
+      x-conventions: conventions/packlink-conventions.yml
+      x-errors: errors/packlink-problem-types.yml
+      x-webhooks: asyncapi/packlink-webhooks.yml

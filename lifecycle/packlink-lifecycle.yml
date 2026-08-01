@@ -1,0 +1,15 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/packlink-openapi.yml + live host probes
+versioning:
+  scheme: uri-path
+  current: v1
+deprecation:
+  policy_url: null
+  sunset_header: unknown
+  notes: No public deprecation policy or Sunset/Deprecation header support was confirmed.
+sla:
+  url: null
+status_page: null
+status_page_notes: No public Packlink status page (status.packlink.com) was found.
+deprecated_operations: []

@@ -1,0 +1,36 @@
+generated: '2026-07-20'
+method: derived
+source: >-
+  openapi/packlink-openapi.yml + Packlink open-source e-commerce integration modules
+  (github.com/packlink-dev/ecommerce_module_core)
+authentication:
+  style: api-key
+  location: header
+  header: Authorization
+  notes: >-
+    Packlink PRO API key passed directly in the Authorization header. Keys are issued
+    per PRO account from the dashboard (Settings > Packlink PRO API).
+versioning:
+  scheme: uri-path
+  current: v1
+  notes: Most endpoints are prefixed with /v1/; some account endpoints (e.g. /pro/subscriptions) sit outside the version prefix.
+webhooks:
+  supported: true
+  mechanism: >-
+    A callback URL is registered via POST /v1/shipments/callback; Packlink calls it on
+    shipment status changes so integrations can sync tracking/label state.
+  registration_operation: openapi/packlink-openapi.yml#registerShipmentCallback
+idempotency:
+  supported: false
+  notes: No documented idempotency-key header was found in the public API surface.
+pagination:
+  supported: unknown
+  notes: No pagination contract confirmed from the public endpoint surface; list endpoints appear to return full result sets.
+error_envelope:
+  notes: >-
+    Errors observed via live probes return standard HTTP status codes (400 bad request,
+    401 unauthorized). No RFC 9457 problem+json media type was confirmed. See errors/packlink-problem-types.yml.
+cross_links:
+  authentication: authentication/packlink-authentication.yml
+  errors: errors/packlink-problem-types.yml
+  lifecycle: lifecycle/packlink-lifecycle.yml

@@ -1,0 +1,18 @@
+generated: '2026-07-20'
+method: derived
+source: >-
+  openapi/packlink-openapi.yml + github.com/packlink-dev/ecommerce_module_core
+  (shipment status callback handling)
+spec_type: Webhooks
+note: >-
+  Packlink does not publish an AsyncAPI document. It supports a single webhook callback
+  surface: an integration registers a callback URL, which Packlink invokes when a
+  shipment's status changes so the integration can sync tracking and label state.
+webhooks:
+  - name: shipment.status.changed
+    description: Fired when a shipment's status changes (label ready, in transit, delivered, etc.).
+    registration:
+      operation: openapi/packlink-openapi.yml#registerShipmentCallback
+      method: POST
+      path: /v1/shipments/callback
+    delivery: HTTP callback to the URL registered by the integration.

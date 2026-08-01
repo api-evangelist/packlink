@@ -1,0 +1,45 @@
+generated: '2026-07-20'
+method: searched
+source: https://github.com/packlink-dev
+note: >-
+  Packlink maintains an open-source e-commerce integration ecosystem under the
+  packlink-dev GitHub org. The core library is a reusable PHP client for the Packlink
+  PRO API; the platform modules embed it. No language-specific SDK was found on npm,
+  PyPI, Packagist, NuGet, or crates.io under a confirmed Packlink name.
+packages:
+  - language: php
+    registry: github
+    name: ecommerce_module_core
+    url: https://github.com/packlink-dev/ecommerce_module_core
+    install: git clone https://github.com/packlink-dev/ecommerce_module_core
+    official: true
+    role: api-client-core
+    description: Core PHP library (API proxy + business logic) shared by all Packlink e-commerce modules.
+  - language: php
+    registry: github
+    name: prestashop_module
+    url: https://github.com/packlink-dev/prestashop_module
+    official: true
+    role: platform-module
+    description: PacklinkPRO PrestaShop shipping module.
+  - language: php
+    registry: github
+    name: woocommerce_module
+    url: https://github.com/packlink-dev/woocommerce_module
+    official: true
+    role: platform-module
+    description: PacklinkPRO WooCommerce shipping module.
+  - language: php
+    registry: github
+    name: magento2_module
+    url: https://github.com/packlink-dev/magento2_module
+    official: true
+    role: platform-module
+    description: PacklinkPRO Magento 2 shipping module.
+  - language: php
+    registry: github
+    name: shopware_module
+    url: https://github.com/packlink-dev/shopware_module
+    official: true
+    role: platform-module
+    description: PacklinkPRO Shopware shipping module.

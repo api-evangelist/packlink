@@ -1,0 +1,20 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/packlink-openapi.yml + live probes of api.packlink.com
+format: http-status
+note: >-
+  Derived from the response codes declared on the Packlink PRO API operations and
+  confirmed by live probes (GET /v1/shipments returned 401, GET /v1/services returned
+  400). No application/problem+json (RFC 9457) media type was confirmed.
+problems:
+  - status: 400
+    title: Bad request
+    description: Missing or invalid request parameters.
+    observed: GET https://api.packlink.com/v1/services returned 400 with no auth/params
+  - status: 401
+    title: Unauthorized
+    description: Missing or invalid Packlink PRO API key in the Authorization header.
+    observed: GET https://api.packlink.com/v1/shipments returned 401 without a key
+  - status: 404
+    title: Not found
+    description: Referenced shipment, service, integration, or resource does not exist.

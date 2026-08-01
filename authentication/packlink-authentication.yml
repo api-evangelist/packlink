@@ -1,0 +1,17 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/packlink-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: ApiKeyAuth
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: Packlink PRO API key passed in the Authorization header. Obtain the key from
+    the Packlink PRO dashboard under Settings > Packlink PRO API.
+  sources:
+  - openapi/packlink-openapi.yml

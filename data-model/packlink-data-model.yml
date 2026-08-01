@@ -1,0 +1,56 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/packlink-openapi.yml
+note: Entity graph derived from the Packlink PRO API endpoint surface and path parameters.
+entities:
+  - name: Client
+    description: The Packlink PRO account holder.
+    operations: [getClient, registerUser, getActiveSubscription]
+  - name: ApiKey
+    description: API credential issued to a client.
+    operations: [getApiKeys, generateApiKey]
+  - name: Warehouse
+    description: A sender address/warehouse belonging to a client.
+    operations: [listWarehouses]
+  - name: Service
+    description: A carrier shipping service (price, transit time, carrier).
+    key: id
+    operations: [listServices, searchServices, getServiceDetails]
+  - name: Shipment
+    description: A parcel shipment created against a chosen service.
+    key: reference
+    operations: [createShipment, getShipment, getShipmentLabels, trackShipment]
+  - name: Dropoff
+    description: A carrier drop-off point for a service and location.
+    operations: [listDropoffs]
+  - name: PostalCode
+    description: Postal code / postal zone lookup entity.
+    operations: [searchPostalCodes, getPostalCodes, listPostalZoneDestinations]
+  - name: CustomsInvoice
+    description: Customs documentation for international shipments.
+    key: id
+    operations: [createCustomsInvoice, downloadCustomsInvoice]
+  - name: Integration
+    description: A connected e-commerce platform/marketplace integration.
+    key: integrationId
+    operations: [registerIntegration, disconnectIntegration]
+relationships:
+  - from: Client
+    to: ApiKey
+    kind: has_many
+  - from: Client
+    to: Warehouse
+    kind: has_many
+  - from: Client
+    to: Integration
+    kind: has_many
+  - from: Shipment
+    to: Service
+    kind: belongs_to
+    via: serviceId
+  - from: Shipment
+    to: CustomsInvoice
+    kind: has_one
+  - from: Service
+    to: Dropoff
+    kind: has_many

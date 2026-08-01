@@ -1,0 +1,24 @@
+{
+  "provider": "packlink",
+  "sources": [
+    "packlink-clients-api-openapi.yml",
+    "packlink-customs-api-openapi.yml",
+    "packlink-integrations-api-openapi.yml",
+    "packlink-locations-api-openapi.yml",
+    "packlink-services-api-openapi.yml",
+    "packlink-shipments-api-openapi.yml"
+  ],
+  "outputs": [
+    "packlink-clients-api-openapi.yml",
+    "packlink-customs-api-openapi.yml",
+    "packlink-integrations-api-openapi.yml",
+    "packlink-locations-api-openapi.yml",
+    "packlink-services-api-openapi.yml",
+    "packlink-shipments-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

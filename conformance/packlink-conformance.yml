@@ -1,0 +1,16 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/packlink-openapi.yml
+standards:
+  - id: oauth2
+    conforms: false
+    evidence: API uses an API-key (Authorization header) scheme; no oauth2 securityScheme.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: No application/problem+json media type confirmed on error responses.
+  - id: rest-json
+    conforms: true
+    evidence: JSON over HTTPS REST endpoints under /v1/.
+  - id: webhooks
+    conforms: true
+    evidence: Shipment status callback registration via POST /v1/shipments/callback.

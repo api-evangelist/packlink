@@ -1,8 +1,28 @@
 aid: packlink
 name: Packlink
-description: 'Packlink is a company surfaced as a portfolio company of accel and added to the API Evangelist
-  network as a stub for enrichment. Sector: ecommerce. This profile is a lead awaiting the enrichment
-  pipeline.'
+description: >-
+  Packlink is a multi-carrier shipping comparison and management platform for
+  e-commerce, founded in Spain and backed by Accel. It lets individuals and businesses
+  compare courier services (UPS, DPD, DHL, Evri, Royal Mail and more) and send parcels
+  nationally and internationally at negotiated rates. Its Packlink PRO product adds a
+  business shipping dashboard with marketplace and e-commerce integrations (Shopify,
+  WooCommerce, Magento, PrestaShop, Amazon, eBay). The Packlink PRO Shipping API
+  (api.packlink.com) exposes service comparison, shipment creation, label printing,
+  parcel tracking, warehouse management, customs invoicing, and integration management,
+  and Packlink maintains open-source e-commerce integration modules on GitHub.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: http://www.packlink.com
 url: https://raw.githubusercontent.com/api-evangelist/packlink/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -12,16 +32,154 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
 - Ecommerce
-apis: []
+- Shipping
+- Logistics
+- Parcel Delivery
+- Carriers
+- Fulfillment
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- aid: packlink:packlink-clients-api
+  name: Packlink Clients API
+  description: Client account, warehouses, and API keys.
+  humanURL: https://pro.packlink.com
+  baseURL: https://api.packlink.com
+  tags:
+  - Clients
+  properties:
+  - type: OpenAPI
+    url: openapi/packlink-clients-api-openapi.yml
+  - type: Authentication
+    url: authentication/packlink-authentication.yml
+  - type: Webhooks
+    url: asyncapi/packlink-webhooks.yml
+- aid: packlink:packlink-customs-api
+  name: Packlink Customs API
+  description: Customs invoices and customs-union lookups.
+  humanURL: https://pro.packlink.com
+  baseURL: https://api.packlink.com
+  tags:
+  - Customs
+  properties:
+  - type: OpenAPI
+    url: openapi/packlink-customs-api-openapi.yml
+  - type: Authentication
+    url: authentication/packlink-authentication.yml
+  - type: Webhooks
+    url: asyncapi/packlink-webhooks.yml
+- aid: packlink:packlink-integrations-api
+  name: Packlink Integrations API
+  description: Register and manage platform integrations.
+  humanURL: https://pro.packlink.com
+  baseURL: https://api.packlink.com
+  tags:
+  - Integrations
+  properties:
+  - type: OpenAPI
+    url: openapi/packlink-integrations-api-openapi.yml
+  - type: Authentication
+    url: authentication/packlink-authentication.yml
+  - type: Webhooks
+    url: asyncapi/packlink-webhooks.yml
+- aid: packlink:packlink-locations-api
+  name: Packlink Locations API
+  description: Postal code, postal zone, and drop-off lookups.
+  humanURL: https://pro.packlink.com
+  baseURL: https://api.packlink.com
+  tags:
+  - Locations
+  properties:
+  - type: OpenAPI
+    url: openapi/packlink-locations-api-openapi.yml
+  - type: Authentication
+    url: authentication/packlink-authentication.yml
+  - type: Webhooks
+    url: asyncapi/packlink-webhooks.yml
+- aid: packlink:packlink-services-api
+  name: Packlink Services API
+  description: Compare and query available shipping services.
+  humanURL: https://pro.packlink.com
+  baseURL: https://api.packlink.com
+  tags:
+  - Services
+  properties:
+  - type: OpenAPI
+    url: openapi/packlink-services-api-openapi.yml
+  - type: Authentication
+    url: authentication/packlink-authentication.yml
+  - type: Webhooks
+    url: asyncapi/packlink-webhooks.yml
+- aid: packlink:packlink-shipments-api
+  name: Packlink Shipments API
+  description: Create shipments, print labels, and track parcels.
+  humanURL: https://pro.packlink.com
+  baseURL: https://api.packlink.com
+  tags:
+  - Shipments
+  properties:
+  - type: OpenAPI
+    url: openapi/packlink-shipments-api-openapi.yml
+  - type: Authentication
+    url: authentication/packlink-authentication.yml
+  - type: Webhooks
+    url: asyncapi/packlink-webhooks.yml
 common:
 - type: Website
   url: http://www.packlink.com
+- type: Portal
+  url: https://pro.packlink.com
+- type: Support
+  url: https://support.packlink.com/hc/en-gb
+- type: Blog
+  url: https://packlink.com/en-GB/blog/
+- type: Integrations
+  url: https://packlink.com/en-GB/integrations/
+- type: GitHubOrganization
+  url: https://github.com/packlink-dev
+- type: SignUp
+  url: https://auth.packlink.com/register/?platform=PRO
+- type: TermsOfService
+  url: https://packlink.com/en-GB/terms-and-conditions/
+- type: PrivacyPolicy
+  url: https://packlink.com/en-GB/privacy-policy/
+- type: Authentication
+  url: authentication/packlink-authentication.yml
+- type: AgenticAccess
+  url: agentic-access/packlink-agentic-access.yml
+- type: MCPServer
+  url: mcp/packlink-mcp.yml
+- type: Conventions
+  url: conventions/packlink-conventions.yml
+- type: Lifecycle
+  url: lifecycle/packlink-lifecycle.yml
+- type: ErrorCatalog
+  url: errors/packlink-problem-types.yml
+- type: DataModel
+  url: data-model/packlink-data-model.yml
+- type: Conformance
+  url: conformance/packlink-conformance.yml
+- type: Packages
+  url: packages/packlink-packages.yml
+- type: SDKs
+  url: packages/packlink-packages.yml
+- type: Webhooks
+  url: asyncapi/packlink-webhooks.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/packlink-llms.txt
+- type: DomainSecurity
+  url: security/packlink-domain-security.yml
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 17
+  pass: local-v1
