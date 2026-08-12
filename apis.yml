@@ -132,6 +132,8 @@ apis:
   - type: Webhooks
     url: asyncapi/packlink-webhooks.yml
 common:
+- type: Overlay
+  url: overlays/packlink-openapi-overlay.yaml
 - type: Website
   url: http://www.packlink.com
 - type: Portal
