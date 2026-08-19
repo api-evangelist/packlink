@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Packlink PRO Shipping Clients Integrations API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Integrations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Register an integration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.packlink.com/v1/integrations"
+          },
+          "docs": "Register an integration"
+        },
+        {
+          "info": {
+            "name": "Disconnect an integration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.packlink.com/v1/integrations/:integrationId",
+            "params": [
+              {
+                "name": "integrationId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Disconnect an integration"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

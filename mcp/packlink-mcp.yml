@@ -2,43 +2,48 @@ generated: '2026-07-20'
 method: derived
 status: candidate
 source: openapi/packlink-openapi.yml
-note: >-
-  No official hosted Packlink MCP server was found. This is a candidate tool list
-  derived one-to-one from the Packlink PRO API operations for future MCP exposure.
+note: No official hosted Packlink MCP server was found. This is a candidate tool list derived one-to-one
+  from the Packlink PRO API operations for future MCP exposure.
 server:
   name: packlink
   transport: http
 tools:
-  - name: list_services
-    description: List available shipping services for an origin/destination and parcel.
-    source_operation: openapi/packlink-openapi.yml#listServices
-  - name: search_services
-    description: Search shipping services for a described shipment.
-    source_operation: openapi/packlink-openapi.yml#searchServices
-  - name: get_service_details
-    description: Get details for a specific shipping service.
-    source_operation: openapi/packlink-openapi.yml#getServiceDetails
-  - name: create_shipment
-    description: Create a shipment draft for a chosen service.
-    source_operation: openapi/packlink-openapi.yml#createShipment
-  - name: get_shipment
-    description: Get a shipment by reference.
-    source_operation: openapi/packlink-openapi.yml#getShipment
-  - name: get_shipment_labels
-    description: Get printable labels for a shipment.
-    source_operation: openapi/packlink-openapi.yml#getShipmentLabels
-  - name: track_shipment
-    description: Get tracking events for a shipment.
-    source_operation: openapi/packlink-openapi.yml#trackShipment
-  - name: register_shipment_callback
-    description: Register a webhook callback for shipment status changes.
-    source_operation: openapi/packlink-openapi.yml#registerShipmentCallback
-  - name: list_dropoffs
-    description: List drop-off points for a service and postal code.
-    source_operation: openapi/packlink-openapi.yml#listDropoffs
-  - name: list_warehouses
-    description: List the client's warehouses.
-    source_operation: openapi/packlink-openapi.yml#listWarehouses
-  - name: create_customs_invoice
-    description: Create a customs invoice for an international shipment.
-    source_operation: openapi/packlink-openapi.yml#createCustomsInvoice
+- name: list_services
+  description: List available shipping services for an origin/destination and parcel.
+  source_operation: openapi/packlink-openapi.yml#listServices
+- name: search_services
+  description: Search shipping services for a described shipment.
+  source_operation: openapi/packlink-openapi.yml#searchServices
+- name: get_service_details
+  description: Get details for a specific shipping service.
+  source_operation: openapi/packlink-openapi.yml#getServiceDetails
+- name: create_shipment
+  description: Create a shipment draft for a chosen service.
+  source_operation: openapi/packlink-openapi.yml#createShipment
+- name: get_shipment
+  description: Get a shipment by reference.
+  source_operation: openapi/packlink-openapi.yml#getShipment
+- name: get_shipment_labels
+  description: Get printable labels for a shipment.
+  source_operation: openapi/packlink-openapi.yml#getShipmentLabels
+- name: track_shipment
+  description: Get tracking events for a shipment.
+  source_operation: openapi/packlink-openapi.yml#trackShipment
+- name: register_shipment_callback
+  description: Register a webhook callback for shipment status changes.
+  source_operation: openapi/packlink-openapi.yml#registerShipmentCallback
+- name: list_dropoffs
+  description: List drop-off points for a service and postal code.
+  source_operation: openapi/packlink-openapi.yml#listDropoffs
+- name: list_warehouses
+  description: List the client's warehouses.
+  source_operation: openapi/packlink-openapi.yml#listWarehouses
+- name: create_customs_invoice
+  description: Create a customs invoice for an international shipment.
+  source_operation: openapi/packlink-openapi.yml#createCustomsInvoice
+deployment:
+  mode: none
+  verified: derived
+  tools: 11
+  checked: '2026-08-12'
+  source: catalog MCP census

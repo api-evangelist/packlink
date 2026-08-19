@@ -1,0 +1,66 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Packlink PRO Shipping Clients Customs API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Customs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a customs invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.packlink.com/v1/customs-invoices"
+          },
+          "docs": "Create a customs invoice"
+        },
+        {
+          "info": {
+            "name": "Download a customs invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.packlink.com/v1/customs-invoices/:id/download",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Download a customs invoice"
+        },
+        {
+          "info": {
+            "name": "Search customs unions by postal code",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.packlink.com/v1/customs-unions/search-by-postal-code"
+          },
+          "docs": "Search customs unions by postal code"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

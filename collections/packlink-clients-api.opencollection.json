@@ -1,0 +1,103 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Packlink PRO Shipping Clients API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Clients",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get client account data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.packlink.com/v1/clients"
+          },
+          "docs": "Get client account data"
+        },
+        {
+          "info": {
+            "name": "List warehouses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.packlink.com/v1/clients/warehouses"
+          },
+          "docs": "List warehouses"
+        },
+        {
+          "info": {
+            "name": "List user parcels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.packlink.com/v1/users/parcels"
+          },
+          "docs": "List user parcels"
+        },
+        {
+          "info": {
+            "name": "List API keys",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.packlink.com/v1/users/api/keys"
+          },
+          "docs": "List API keys"
+        },
+        {
+          "info": {
+            "name": "Generate an API key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.packlink.com/v1/users/api/keys"
+          },
+          "docs": "Generate an API key"
+        },
+        {
+          "info": {
+            "name": "Register a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.packlink.com/v1/register"
+          },
+          "docs": "Register a user"
+        },
+        {
+          "info": {
+            "name": "Get active PRO subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.packlink.com/pro/subscriptions/client/active"
+          },
+          "docs": "Get active PRO subscription"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

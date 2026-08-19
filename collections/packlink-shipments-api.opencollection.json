@@ -1,0 +1,102 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Packlink PRO Shipping Clients Shipments API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Shipments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a shipment draft",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.packlink.com/v1/shipments"
+          },
+          "docs": "Creates a shipment draft for a chosen service."
+        },
+        {
+          "info": {
+            "name": "Get shipment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.packlink.com/v1/shipments/:reference",
+            "params": [
+              {
+                "name": "reference",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get shipment"
+        },
+        {
+          "info": {
+            "name": "Get shipment labels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.packlink.com/v1/shipments/:reference/labels",
+            "params": [
+              {
+                "name": "reference",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get shipment labels"
+        },
+        {
+          "info": {
+            "name": "Track shipment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.packlink.com/v1/shipments/:reference/track",
+            "params": [
+              {
+                "name": "reference",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Track shipment"
+        },
+        {
+          "info": {
+            "name": "Register a shipment status webhook callback",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.packlink.com/v1/shipments/callback"
+          },
+          "docs": "Registers a callback URL that Packlink calls when a shipment's status changes."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

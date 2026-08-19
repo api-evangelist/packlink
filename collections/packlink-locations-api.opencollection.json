@@ -1,0 +1,99 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Packlink PRO Shipping Clients Locations API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Locations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List drop-off points",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.packlink.com/v1/dropoffs/:serviceId/:countryCode/:postalCode",
+            "params": [
+              {
+                "name": "serviceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "countryCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "postalCode",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List drop-off points"
+        },
+        {
+          "info": {
+            "name": "Search postal codes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.packlink.com/v1/locations/postalcodes"
+          },
+          "docs": "Search postal codes"
+        },
+        {
+          "info": {
+            "name": "Get postal codes by country and zip",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.packlink.com/v1/locations/postalcodes/:countryCode/:zipCode",
+            "params": [
+              {
+                "name": "countryCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "zipCode",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get postal codes by country and zip"
+        },
+        {
+          "info": {
+            "name": "List postal-zone destinations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.packlink.com/v1/locations/postalzones/destinations"
+          },
+          "docs": "List postal-zone destinations"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

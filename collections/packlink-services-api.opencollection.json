@@ -1,0 +1,66 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Packlink PRO Shipping Clients Services API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Services",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List available shipping services",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.packlink.com/v1/services"
+          },
+          "docs": "Returns shipping services available for the given origin/destination and parcel parameters."
+        },
+        {
+          "info": {
+            "name": "Search shipping services",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.packlink.com/v1/services"
+          },
+          "docs": "Searches shipping services for a described shipment (dimensions, weight, origin, destination)."
+        },
+        {
+          "info": {
+            "name": "Get service details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.packlink.com/v1/services/available/:id/details",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get service details"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
