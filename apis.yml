@@ -35,6 +35,14 @@ created: '2026-07-17'
 modified: '2026-07-20'
 tags:
 - Company
+- E-Commerce
+- Shipping
+- Logistics
+- Parcel Delivery
+- Carriers
+- Fulfillment
+tags_raw:
+- Company
 - Ecommerce
 - Shipping
 - Logistics
@@ -81,6 +89,8 @@ apis:
   humanURL: https://pro.packlink.com
   baseURL: https://api.packlink.com
   tags:
+  - Integration
+  tags_raw:
   - Integrations
   properties:
   - type: OpenAPI
