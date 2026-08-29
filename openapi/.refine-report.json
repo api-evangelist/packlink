@@ -19,6 +19,14 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "packlink-clients-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "packlink-customs-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "packlink-integrations-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "packlink-locations-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "packlink-services-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "packlink-shipments-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
   "skipped": []
 }
