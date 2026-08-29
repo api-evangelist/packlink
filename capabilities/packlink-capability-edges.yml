@@ -1,0 +1,26 @@
+slug: packlink
+provider: Packlink
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Transportation & Logistics
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Customs
+  spec_file: packlink-customs-api-openapi.yml
+  capability_id: BC-2480
+  capability_id_l1: BC-2480
+  capability_name: Customs & Trade Compliance Management
+  confidence: 0.8
+  evidence: POST /v1/customs-invoices 'Create a customs invoice'; POST /v1/customs-unions/search-by-postal-code
+    'Search customs unions by postal code'
+  reason: Operations produce customs paperwork and determine customs-union applicability for cross-border
+    parcels — customs and trade compliance. Sub-capability ambiguous between declaration management and
+    duty determination, so L1 only.
