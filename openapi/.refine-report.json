@@ -1,12 +1,7 @@
 {
   "provider": "packlink",
   "sources": [
-    "packlink-clients-api-openapi.yml",
-    "packlink-customs-api-openapi.yml",
-    "packlink-integrations-api-openapi.yml",
-    "packlink-locations-api-openapi.yml",
-    "packlink-services-api-openapi.yml",
-    "packlink-shipments-api-openapi.yml"
+    "_ae-authored/packlink-openapi.yml"
   ],
   "outputs": [
     "packlink-clients-api-openapi.yml",
@@ -20,13 +15,16 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "packlink-clients-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "packlink-customs-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "packlink-integrations-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "packlink-locations-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "packlink-services-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "packlink-shipments-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "packlink-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "packlink-clients-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "packlink-customs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "packlink-integrations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "packlink-locations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "packlink-services-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "packlink-shipments-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

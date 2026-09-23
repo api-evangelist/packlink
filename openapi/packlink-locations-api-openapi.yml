@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
-  title: Packlink PRO Shipping Clients Locations API
+  title: Packlink PRO Shipping Locations API
   version: v1
-  description: The Packlink PRO Shipping API lets e-commerce merchants and integrations compare carrier services, create shipments, print labels, track parcels, manage warehouses, and handle customs paperwork across Packlink's multi-carrier shipping network. This description is DERIVED from the endpoint surface used by Packlink's own open-source e-commerce integration modules (ecommerce_module_core Proxy). Request and response schemas are intentionally left minimal to avoid fabricating fields not confirmed from a published specification.
+  description: The Packlink PRO Shipping API lets e-commerce merchants and integrations compare carrier services, create shipments, print labels, track parcels, manage warehouses, and handle customs paperwork across Packlink's multi-carrier shipping network.
   contact:
     name: Packlink PRO Support
     url: https://support.packlink.com/hc/en-gb
