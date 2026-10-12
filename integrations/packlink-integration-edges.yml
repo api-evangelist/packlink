@@ -1,0 +1,16 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/packlink/integrations
+- https://n8n.io/integrations/packlink/
+- https://composio.dev/toolkits/packlink
+- https://monid.ai/tools/packlink
+checked:
+- https://composio.dev/toolkits/packlink
+- https://monid.ai/tools/packlink
+- https://n8n.io/integrations/packlink/
+- https://zapier.com/apps/packlink/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
