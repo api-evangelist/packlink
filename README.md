@@ -64,6 +64,130 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Packlink is a company surfaced as a portfolio company of accel and added to the API Evangelist network as a stub for enrichment. Sector: ecommerce. This profile is a lead awaiting the enrichment pipeline.
+Packlink is a multi-carrier shipping comparison and management platform for e-commerce, founded in Spain and backed by Accel. It lets individuals and businesses compare courier services (UPS, DPD, DHL, Evri, Royal Mail and more) and send parcels nationally and internationally at negotiated rates. Its Packlink PRO product adds a business shipping dashboard with marketplace and e-commerce integrations (Shopify, WooCommerce, Magento, PrestaShop, Amazon, eBay). The Packlink PRO Shipping API (api.packlink.com) exposes service comparison, shipment creation, label printing, parcel tracking, warehouse management, customs invoicing, and integration management, and Packlink maintains open-source e-commerce integration modules on GitHub.
 
-Backed by: accel — http://www.packlink.com
+**Areas:** Company · E-Commerce · Shipping · Logistics · Parcel Delivery · Carrier · Fulfillment
+
+## Packlink on APIs.io
+
+Everything profiled for Packlink is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/packlink/](https://apis.io/providers/packlink/)** — or go straight to one of the APIs or properties below.
+
+### APIs (6)
+
+- [Packlink Clients API](https://apis.io/apis/packlink/packlink-clients-api/) — Client account, warehouses, and API keys.
+- [Packlink Customs API](https://apis.io/apis/packlink/packlink-customs-api/) — Customs invoices and customs-union lookups.
+- [Packlink Integrations API](https://apis.io/apis/packlink/packlink-integrations-api/) — Register and manage platform integrations.
+- [Packlink Locations API](https://apis.io/apis/packlink/packlink-locations-api/) — Postal code, postal zone, and drop-off lookups.
+- [Packlink Services API](https://apis.io/apis/packlink/packlink-services-api/) — Compare and query available shipping services.
+- [Packlink Shipments API](https://apis.io/apis/packlink/packlink-shipments-api/) — Create shipments, print labels, and track parcels.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Packlink Webhooks](https://apis.io/asyncapis/packlink/packlink-webhooks/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [packlink](https://apis.io/servers/packlink/packlink/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Packlink Agentic Access](https://apis.io/agentic-access/packlink/packlink-agentic-access/)
+
+#### Collections (6)
+
+Postman and Open Collection request collections.
+
+- [Packlink PRO Shipping Clients API](https://apis.io/collections/packlink/open-packlink-clients-api/)
+- [Packlink PRO Shipping Clients Customs API](https://apis.io/collections/packlink/open-packlink-customs-api/)
+- [Packlink PRO Shipping Clients Integrations API](https://apis.io/collections/packlink/open-packlink-integrations-api/)
+- [Packlink PRO Shipping Clients Locations API](https://apis.io/collections/packlink/open-packlink-locations-api/)
+- [Packlink PRO Shipping Clients Services API](https://apis.io/collections/packlink/open-packlink-services-api/)
+- [Packlink PRO Shipping Clients Shipments API](https://apis.io/collections/packlink/open-packlink-shipments-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Packlink Openapi Overlay](https://apis.io/overlays/packlink/packlink-openapi-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Packlink Authentication](https://apis.io/security/packlink/packlink-authentication/)
+- [Packlink Domain Security](https://apis.io/security/packlink/packlink-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](http://www.packlink.com)
+- [Sign up](https://auth.packlink.com/register/?platform=PRO)
+- [Support](https://support.packlink.com/hc/en-gb)
+- [Blog](https://packlink.com/en-GB/blog/)
+- [Terms of service](https://packlink.com/en-GB/terms-and-conditions/)
+- [Privacy policy](https://packlink.com/en-GB/privacy-policy/)
+- [GitHub](https://github.com/packlink-dev)
+
+## API Evangelist rating
+
+**Kin Score 26.1** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 78.6 |
+| Contract quality | 21.1 |
+| Contract governance | 4.5 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 37.5 |
+| Access clarity | 21.1 |
+
+**Agent readiness 20.0** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | derived (partial credit) |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 20.8** — Telecommunications
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/packlink/](https://apis.io/providers/packlink/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Packlink: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/packlink/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
